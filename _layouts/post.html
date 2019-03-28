@@ -1,0 +1,31 @@
+---
+comments: true
+---
+<!DOCTYPE html>
+<html lang="ko">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    {% include aside.html %}
+    <div class="page-top {{ page.background }}" id="page-top">
+      <div class="page-top__container">
+        <div class="page-top__container-title">
+          {{ page.title }}
+        </div>
+        <div class="page-top__container-date">
+          {{ page.date | date_to_long_string }}
+        </div>
+      </div>
+    </div>
+    <div class="section-container">
+      <div class="section">
+        {{ content }}
+        {% include comment.html %}
+      </div>
+    </div>
+    {% include footer.html %}
+    <script id="dsq-count-scr" src="//devwooklog.disqus.com/count.js" async></script>
+    <!-- <script data-main="js/main" src="{{ '/js/require.js' | relative_url }}"></script>
+    <script src="{{ '/js/require.config.js' | relative_url }}"></script> -->
+  </body>
+</html>

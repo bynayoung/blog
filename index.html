@@ -1,0 +1,23 @@
+---
+layout: default
+title: "DevWooklog"
+---
+
+<ul class="post-list">
+  {% assign yearMonth = 'Feb 2100' | split: ' ' %}
+  {% for post in site.posts %}
+    {% assign curYearMonth = post.date | date: '%B %Y' %}
+    {% if curYearMonth != yearMonth %}
+      {% assign yearMonth = curYearMonth %}
+      <li class="post-ym">
+        {{ curYearMonth }}
+      </li>
+    {% endif %}
+    <li class="post-wrapper">
+      <span class="post">
+        <span class="post-suffix">·</span>
+        <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      </span>
+    </li>
+  {% endfor %}
+</ul>
